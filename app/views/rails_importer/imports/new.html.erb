@@ -1,0 +1,8 @@
+<%= form_for @import do |f| %>
+  <%= f.hidden_field :importer_key, value: @import.importer_key %>
+
+  <%= f.label :import_file %>
+  <%= f.file_field :import_file %>
+
+  <%= f.submit %>
+<% end %>
