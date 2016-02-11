@@ -7,6 +7,11 @@ require "rails_importer"
 
 module ExampleApp
   class Application < Rails::Application
+	# Load application's importers
+	Dir.glob(File.join(File.dirname(__FILE__), "../lib/rails_importer/*_importer.rb")) do |c|
+	  Rails.configuration.cache_classes ? require(c) : load(c)
+	end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

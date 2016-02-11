@@ -8,5 +8,6 @@ FactoryGirl.define do
   end
 
   factory :invalid_import, class: Import do
+    importer_key nil
   end
 end

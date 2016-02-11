@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
 
-  mount RailsImporter::Engine => "/rails_importer"
+  mount RailsImporter::Engine => "/"
+
+  root controller: 'imports', action: 'new'
 end
