@@ -4,6 +4,9 @@ module RailsImporter
     mattr_accessor :importers
     @@importers = []
 
+    mattr_accessor :router_name
+    @@router_name = :main_app
+
     def setup
       yield self if block_given?
     end
