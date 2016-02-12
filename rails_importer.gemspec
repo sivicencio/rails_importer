@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sivicencio@gmail.com"]
 
   spec.summary       = %q{Import engine for Rails}
-  spec.description   = %q{Define importers for massive spreadsheet/csv load of data, based on your needs}
+  spec.description   = %q{Rails Engine where importers can be defined for massive spreadsheet/csv load of data, based on your needs}
   spec.homepage      = "https://github.com/sivicencio/rails_importer"
   spec.license       = "MIT"
 
