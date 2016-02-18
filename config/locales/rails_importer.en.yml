@@ -2,3 +2,5 @@ en:
   rails_importer:
     importer_does_not_exist: Importer does not exist
     processing_import: Importing has begun. Results will be available soon.
+    sample_file: Sample file
+    sample_file_not_available: Sample file not available

@@ -12,5 +12,9 @@ RSpec.describe RailsImporter::ImportsController, :type => :routing do
     it "routes to #create" do
       expect(:post => "/importers/importer").to route_to(controller: "rails_importer/imports", action: 'create', importer_key: "importer")
     end
+
+    it "routes to #sample" do
+      expect(:get => "/importers/importer/sample").to route_to(controller: "rails_importer/imports", action: 'sample', importer_key: "importer")
+    end
   end
 end
