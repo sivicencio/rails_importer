@@ -44,7 +44,7 @@ describe RailsImporter::ImportsController, type: :controller do
         it "has a success message" do
           expect(flash[:notice]).to_not be_nil
         end
-      end      
+      end
     end
 
     describe "with invalid params" do
@@ -60,6 +60,31 @@ describe RailsImporter::ImportsController, type: :controller do
 
       it "has no success messages" do
         expect(flash[:notice]).to be_nil
+      end
+    end
+  end
+
+  describe "GET sample" do
+    context "when importer sample file exists" do
+      before(:each) do
+        allow(RailsImporter::Base).to receive(:sample_file).and_return("lib/rails_importer/templates/importer.xlsx")
+        get :sample, importer_key: 'example'
+      end
+
+      it { expect(response).to be_success }
+
+      it "has a octet-stream content type" do
+        expect(response.headers['Content-Type']).to eq('application/octet-stream')
+      end
+    end
+
+    context "when importer sample file does not exist" do
+      before(:each) { get :sample, importer_key: 'example' }
+
+      it { expect(response).to redirect_to('/') }
+
+      it "has an alert messages" do
+        expect(flash[:alert]).not_to be_nil
       end
     end
   end

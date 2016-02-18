@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe RailsImporter::Base do
   let(:import) { FactoryGirl.build(:import, importer_key: 'example') }
 
-  subject { RailsImporter::Base.new(import.filepath) }  
+  subject { RailsImporter::Base.new(import.filepath) }
 
   ###############
   # attributes #
@@ -42,20 +42,20 @@ RSpec.describe RailsImporter::Base do
 
 
   describe ".key" do
-    it "returns a keyname based on class name" do      
+    it "returns a keyname based on class name" do
       expect(subject.class.key).to eq 'base'
     end
   end
 
   describe "#load_data" do
-    it "raises an exception because concrete importers must implement it" do      
+    it "raises an exception because concrete importers must implement it" do
       expect { subject.load_data(row: '') }.to raise_exception(RuntimeError)
     end
   end
 
   describe "#process" do
     context "when filepath is valid" do
-      it "processes each row of the spreadsheet" do      
+      it "processes each row of the spreadsheet" do
         allow(subject).to receive(:load_data)
         expect(subject).to receive(:load_data)
         subject.process
@@ -63,11 +63,17 @@ RSpec.describe RailsImporter::Base do
     end
 
     context "when filepath is invalid" do
-      it "processes nothing" do      
+      it "processes nothing" do
         base = RailsImporter::Base.new('some_invalid_filepath')
         expect(base).not_to receive(:load_data)
         base.process
       end
+    end
+  end
+
+  describe ".sample" do
+    it "returns the sample file path of the importer" do
+      expect(subject.class.sample_file).to eq Rails.root.join('lib/rails_importer/templates/base.xlsx')
     end
   end
 end

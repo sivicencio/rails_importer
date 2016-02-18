@@ -4,5 +4,8 @@
   <%= f.label :import_file %>
   <%= f.file_field :import_file %>
 
+  <div class="sample-file">
+    <%= link_to I18n.t(:sample_file, scope: :rails_importer), sample_imports_path %>
+  </div>
   <%= f.submit %>
 <% end %>

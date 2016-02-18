@@ -17,11 +17,14 @@ module RailsImporter
       end
     end
 
-    # def template
-    #   file = File.open(@importer_class.sample_file)
+    def sample
+      file = File.open(@importer_class.sample_file)
 
-    #   send_data file.read, :filename => File.basename(@importer.sample_file)
-    # end
+      send_data file.read, :filename => File.basename(@importer_class.sample_file)
+    rescue => e
+      flash[:alert] = I18n.t(:sample_file_not_available, scope: :rails_importer)
+      redirect_to after_import_path
+    end
 
     private
 

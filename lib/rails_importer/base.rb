@@ -56,9 +56,14 @@ module RailsImporter
       raise "#{__FILE__}:#{__LINE__} You must define it"
     end
 
+    # The importer sample file
+    def self.sample_file
+      Rails.root.join("lib/rails_importer/templates/#{key}.xlsx")
+    end
+
     private
 
-    # Returns a Roo instance acording the file extension.
+    # Returns a Roo::Spreadsheet instance according the file extension.
     def open_spreadsheet sheet_name = ''
       extension = File.extname(@filepath.split("/").last)
       @spreadsheet = Roo::Spreadsheet.open(@filepath, extension: extension)
