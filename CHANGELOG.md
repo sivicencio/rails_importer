@@ -16,6 +16,10 @@
 
 ## Changes
 
+### 0.2.0 (February 18, 2016)
+
+* [FEATURE] Add sample file link to import form which downloads a pre-defined sample file for each importer
+
 ### 0.1.0 (February 12, 2016)
 
 * [FEATURE] First release

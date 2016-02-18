@@ -112,6 +112,15 @@ end
 ```
 The `context` variable used above contains the app routes, so don't forget to use it.
 
+## Sample files
+You can add a sample file for each importer if you wish to communicate the spreadsheet structure your importer follows.
+
+The sample file must be located inside the `lib/rails_importer/templates/` folder and have the same name as your importer key. For the `ExampleImporter` used above, the path would be: `lib/rails_importer/templates/example.xslx`
+
+The import form has a link to the sample file. If you do not declare the file, then this link will redirect to `after_import_path`.
+
+Note: `.xlsx` sample files are the only ones currently supported (for now).
+
 ## Import Job
 When processing an import file, an ActiveJob instance is used. If you're deploying to production, you will want to use some active job adapter, such as [Sidekiq](https://github.com/mperham/sidekiq).
 
