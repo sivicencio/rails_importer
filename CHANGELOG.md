@@ -8,7 +8,7 @@
   functionality, or improves on an existing feature.
 * `[UI]`: Non-breaking changes to the default user interface (HTML/CSS).
 * `[BUGFIX]`: Fixes a bug with a non-breaking change.
-* `[COMPAT]`: Compatibility improvements - changes to make Administrate more
+* `[COMPAT]`: Compatibility improvements - changes to make Rails Importer more
   compatible with different dependency versions.
 * `[I18n]`: Internationalization. Changes to translations or localizations.
 * `[OPTIM]`: Optimization or performance increase.
@@ -16,9 +16,14 @@
 
 ## Changes
 
+### 0.2.1 (August 30, 2016)
+
+* [FEATURE] Add possibility to inherit `RailsImporter::ImportsController` from custom controller class
+  using gem initializer.
+
 ### 0.2.0 (February 18, 2016)
 
-* [FEATURE] Add sample file link to import form which downloads a pre-defined sample file for each importer
+* [FEATURE] Add sample file link to import form which downloads a pre-defined sample file for each importer.
 
 ### 0.1.0 (February 12, 2016)
 
