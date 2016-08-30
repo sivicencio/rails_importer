@@ -8,7 +8,7 @@ module RailsImporter
       end
 
       protected
-      
+
       def context
         router_name = RailsImporter.router_name
         context = router_name ? send(router_name) : self
