@@ -1,5 +1,5 @@
 module RailsImporter
-  class ImportsController < ::ApplicationController
+  class ImportsController < RailsImporter.parent_controller_class
     before_filter :set_importer_class
 
     def new

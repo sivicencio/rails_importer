@@ -100,6 +100,16 @@ The `importer_key` param is used to determine which importer class must be used.
 
 Routes described above are handled by the `RailsImporter::ImportsController` controller. If you need custom logic, you can override it.
 
+This controller inherits from standard `ApplicationController`. If you need to inherit from a particular controller (for example if you have a namespaced controller like `Admin::ApplicationController`), you can set this inside the initializer:
+
+```ruby
+# config/initializers/rails_importer.rb
+
+RailsImporter.setup do |config|
+  config.parent_controller_class = Admin::ApplicationController
+end
+```
+
 Besides that, the `after_import_path` controller method is used to redirect after successful imports. It defaults to `root_path`, but you can override it if you wish a custom path:
 
 ```ruby

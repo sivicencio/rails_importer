@@ -7,8 +7,14 @@ module RailsImporter
     mattr_accessor :router_name
     @@router_name = :main_app
 
+    mattr_accessor :parent_controller_class
+
     def setup
       yield self if block_given?
+    end
+
+    def parent_controller_class
+      @@parent_controller_class || ::ApplicationController
     end
 
     def importer_class(importer_key)
